@@ -19,7 +19,7 @@ const Keyboard = ({usedKeys, dark}) => {
           
           return (
             <div key = {i.key} 
-            className = {((i.key === 'a' ? "left-space " : "") + (color ? color : dark ? " dark" : " white"))}
+            className = {(color ? color : dark ? " dark" : " white")}
             >
             {i.key}
             </div>
