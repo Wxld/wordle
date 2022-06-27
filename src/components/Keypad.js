@@ -4,15 +4,11 @@ import data from '../data/db.json'
 
 const Keyboard = ({usedKeys, dark}) => {
   const [letters, setLetters] = useState(null);
-
+  
   useEffect(() => {
-    const fetchData = async () => {
-      const res = data.letters;
+    const res = data.letters;
 
-      setLetters(res);
-    }
-    
-    fetchData();
+    setLetters(res);
   }, [])
   
 
@@ -22,8 +18,8 @@ const Keyboard = ({usedKeys, dark}) => {
           const color = usedKeys[i.key];
           
           return (
-            <div key={i.key} 
-            className={"keypad-div " + (i.key === 'a' ? "left-space " : " ") + (dark ? "dark " : " ") + color}
+            <div key = {i.key} 
+            className = {((i.key === 'a' ? "left-space " : "") + (color ? color : dark ? " dark" : " white"))}
             >
             {i.key}
             </div>
