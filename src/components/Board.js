@@ -16,7 +16,7 @@ const Board = ({targetWord, dark}) => {
         }
     }, [handleKeyUp, turn, correct]);
     return (
-        <div className={dark ? "dark" : ""}>
+        <div>
             <Grid historyPro={historyPro} currentGuess={currentGuess} turn={turn} />
             <Keypad usedKeys={usedKeys} dark={dark} />
             {(correct || turn === 6) && <Modal correct={correct} targetWord={targetWord} turn={turn} />}

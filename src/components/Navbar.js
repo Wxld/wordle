@@ -1,10 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { styled } from '@mui/material/styles';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import 'remixicon/fonts/remixicon.css'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -55,10 +52,10 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 
-const Navbar = ({dark, setDark}) => {
+const Navbar = ({dark, setDark, setPopUp}) => {
   return (
     <nav className='navbar'>
-      <div className="help">
+      <div className="help" onClick={() => setPopUp(prev => !prev)}>
         <i className={dark ? "ri-question-fill" : "ri-question-line"}></i>
       </div>
       <div className={(dark ? "dark " : " ") + "heading"}>Wordle</div>

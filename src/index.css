@@ -5,7 +5,34 @@ body {
     margin: 0;
   }
   .background {
+    width: 100%;
     min-height: 100vh;
+    position: relative;
+  }
+  .htp-heading {
+    margin-bottom: 0;
+  }
+  .card {
+    color: #0e0e10;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .instructions {
+    max-width: 80%;
+    text-align: start;
   }
   .navbar {
     margin: 0 auto;
@@ -215,4 +242,43 @@ body {
   
   .bn30:hover .text {
     background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
+  }
+
+  .bn632-hover {
+    width: 140px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    height: 35px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  
+  .bn632-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  
+  .bn632-hover:focus {
+    outline: none;
+  }
+  
+  .bn632-hover.bn20 {
+    background-image: linear-gradient(
+      to right,
+      #667eea,
+      #764ba2,
+      #6b8dd6,
+      #8e37d7
+    );
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
   }
