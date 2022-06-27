@@ -1,4 +1,6 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import data from '../data/db.json'
 
 const useWordle = (targetWord) => {
     const [turn, setTurn] = useState(0);
@@ -8,12 +10,18 @@ const useWordle = (targetWord) => {
     const [correct, setCorrect] = useState(false);
     const [usedKeys, setUsedKeys] = useState({});
 
+    const dictionary = data.dictionary;
+
     const handleEnter = () => {
         if(history.includes(currentGuess)) {
-            setCurrentGuess("");
             // send some message that the current guess can't be added
+
+            toast.error("Same word cannot be repeated!");
+
+        } else if(!dictionary.includes(currentGuess)) {
+
+            toast.error("Invalid word!");
             
-            return null;
         } else {
             let currentObject = [], newKeys={};
 
@@ -37,6 +45,8 @@ const useWordle = (targetWord) => {
             
             if(targetWord === currentGuess) {
                 setCorrect(true);
+
+                toast.success("You Won!!");
             } 
                 
             setTurn(prev => prev+1);
@@ -63,10 +73,9 @@ const useWordle = (targetWord) => {
 
                 return prevKeys;
             })
-            console.log(newKeys);
+            //console.log(newKeys);
 
             setCurrentGuess("");
-            return correct;
         }
     } 
 

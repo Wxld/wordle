@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 import Board from "./components/Board";
 import Navbar from "./components/Navbar";
 import './index.css'
+import data from './data/db.json'
 
 function App() {
   const [targetWord, setTargetWord] = useState("");
   const [dark, setDark] = useState(true);
-
+  
   useEffect(() => {
     const fetchTarget = async () => {
-      const data = await fetch("http://localhost:5000/targetWords");
-      const res = await data.json();
+      const res = data.targetWords;   
 
       let index = Math.floor(Math.random()*res.length);
       setTargetWord(res[index]);
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className={"background " + (dark ? "dark" : "")}>
+      <Toaster />
       <Navbar dark={dark} setDark={setDark} />
       {targetWord && <Board targetWord={targetWord} dark={dark} />}
     </div>

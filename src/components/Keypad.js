@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
+import data from '../data/db.json'
+
 const Keyboard = ({usedKeys, dark}) => {
   const [letters, setLetters] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('http://localhost:5000/letters');
-      const data = await res.json();
+      const res = data.letters;
 
-      setLetters(data);
+      setLetters(res);
     }
     
     fetchData();
