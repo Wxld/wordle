@@ -81,7 +81,7 @@ const useWordle = (targetWord) => {
 
     const handleKeyUp = ({ key }) => {
         if(/^[A-Za-z]/.test(key) && currentGuess.length < 5 && key.length === 1) {
-            setCurrentGuess(prev => prev+key);
+            setCurrentGuess(prev => prev+key.toLowerCase());
         } else if(key === "Backspace" && currentGuess.length) {
             setCurrentGuess(prev => prev.slice(0, -1));
         } else if(key === "Enter" && currentGuess.length === 5) {
